@@ -1,16 +1,18 @@
 package me.vrekt.r5674;
 
+import java.io.File;
 import java.util.Scanner;
 
 import me.vrekt.r5674.benchmark.Benchmark;
 import me.vrekt.r5674.benchmark.Benchmark.Mode;
 import me.vrekt.r5674.mode.BFAttack;
+import me.vrekt.r5674.mode.DictionaryAttack;
 
 public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("R5674: Java password cracker that utilizes the CPU.");
-		System.out.println("Version: r-2.0");
+		System.out.println("Version: r-2.0.1a");
 
 		System.out.println("----------------------------------------------------\nPlease choose an option.");
 		System.out.println("[A] Basic Benchmark - Test and see how fast your CPU is. ");
@@ -63,6 +65,30 @@ public class Main {
 			}
 
 			new BFAttack(password, builder.toString());
+			break;
+		case "d":
+			System.out.println("Please enter the desired password: ");
+			String pw = in.nextLine();
+
+			System.out.println("Dictionary file location: ");
+			String loc = in.nextLine();
+
+			File f = new File(loc);
+			if (!f.exists()) {
+				System.out.println("File not found.");
+				System.exit(-1);
+				break;
+			}
+
+			in.close();
+
+			// Make things look nice by "clearing" the console.
+
+			for (int i = 0; i < 100; i++) {
+				System.out.println("");
+			}
+
+			new DictionaryAttack(f, pw);
 			break;
 
 		default:

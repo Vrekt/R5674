@@ -57,6 +57,9 @@ public class Benchmark implements Runnable {
 
 			long time = System.currentTimeMillis() - startTime;
 
+			long score = time / 60;
+
+			System.out.println("Score (lower is better): " + score);
 			System.out.println("Benchmark finished. Total time: " + time + "ms (" + time / 1000 / 60 + " minutes)");
 			System.out.println("Attempts: " + attempts);
 			break;
@@ -72,6 +75,10 @@ public class Benchmark implements Runnable {
 			}
 
 			long timel = System.currentTimeMillis() - startTime;
+
+			long score1 = timel / 60;
+
+			System.out.println("Score (lower is better): " + score1);
 
 			System.out.println("Benchmark finished. Total time: " + timel + "ms (" + timel / 1000 / 60 + " minutes)");
 			System.out.println("Attempts: " + attempts);
