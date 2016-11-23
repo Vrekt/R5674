@@ -4,6 +4,6 @@ R5674: Java password cracking.
   
   - Brute force attack.
   - Benchmarking.
-  - Soon to come Dictionary Attack.
+  - Dictionary Attack.
   - Fast and efficient.
 
